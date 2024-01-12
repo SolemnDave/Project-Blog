@@ -204,4 +204,4 @@ By implementing a CI/CD pipeline with AWS CodeBuild and CodePipeline, the deploy
 
 # Architecture
 
-![Architecture Diagram](./ProjectBlogArch.png)
+![Project Blog Architecture](src/assets/images/ProjectBlogArch.png)
