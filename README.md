@@ -204,4 +204,4 @@ By implementing a CI/CD pipeline with AWS CodeBuild and CodePipeline, the deploy
 
 # Architecture
 
-![Project blog drawio](https://github.com/SolemnDave/Project-Blog/assets/95494490/8be963ef-73f6-42db-bded-989d52723090)
+![Architecture Diagram](./ProjectBlogArch.png)
