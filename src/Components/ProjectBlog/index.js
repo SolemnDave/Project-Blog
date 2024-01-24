@@ -198,7 +198,7 @@ function ProjectBlog() {
           <img src="/java-script.png" alt="Description3" />
 
           <img src="/logo.png" alt="Description4" />
-          <img src="/typescript.png" alt="Description5" />
+          <img src="/linux.png" alt="Description5" />
           <img src="/github.png" alt="Description6" />
         </div>
       </section>
