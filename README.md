@@ -201,5 +201,3 @@ Implementing Amazon CloudFront as the CDN for Project Blog significantly improve
 ### Outcome
 
 By implementing a CI/CD pipeline with AWS CodeBuild and CodePipeline, the deployment process for Project Blog is optimized. The pipeline ensures that the latest version of the application is automatically built, tested, and deployed to the EC2 instance, reflecting changes in real-time and minimizing manual intervention.
-
-# Architecture
