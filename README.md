@@ -2,6 +2,8 @@
 
 ## Project Blog is a website created using AWS that is dedicated to documenting the courses and books that I engage in.
 
+# Architecture
+
 ![Project Blog Architecture](src/assets/images/ProjectBlogArch.png)
 
 ## Table of Contents
