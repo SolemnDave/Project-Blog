@@ -2,6 +2,8 @@
 
 ## Project Blog is a website created using AWS that is dedicated to documenting the courses and books that I engage in.
 
+![Project Blog Architecture](src/assets/images/ProjectBlogArch.png)
+
 ## Table of Contents
 
 - [Overview](#overview)
@@ -14,8 +16,6 @@
 - [Upcoming Steps](#upcoming-steps)
 
   - [Step 5 - Streamlined CI/CD with AWS CodeBuild and CodePipeline for Direct Deployment to EC2](#step-5---streamlined-cicd-with-aws-codebuild-and-codepipeline-for-direct-deployment-to-ec2)
-
-- [Architecture](#architecture)
 
 ## Overview
 
@@ -203,5 +203,3 @@ Implementing Amazon CloudFront as the CDN for Project Blog significantly improve
 By implementing a CI/CD pipeline with AWS CodeBuild and CodePipeline, the deployment process for Project Blog is optimized. The pipeline ensures that the latest version of the application is automatically built, tested, and deployed to the EC2 instance, reflecting changes in real-time and minimizing manual intervention.
 
 # Architecture
-
-![Project Blog Architecture](src/assets/images/ProjectBlogArch.png)
