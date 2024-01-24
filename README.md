@@ -111,7 +111,7 @@ The result of this step was a fully functional, aesthetically pleasing, and user
 
 ### Outcome
 
-By the end of this step, a fully configured and secure EC2 instance was ready, serving as the robust backbone for hosting the Project Blog. The implementation of Nginx ensures that the website is accessible through your Elastic IP.
+By the end of this step, a fully configured and secure EC2 instance was ready, serving as the robust backbone for hosting the Project Blog. The implementation of Nginx ensures that the website is accessible through my Elastic IP.
 
 ## Step 3 - DNS Management and SSL Configuration with Route 53 and ACM
 
@@ -129,7 +129,7 @@ By the end of this step, a fully configured and secure EC2 instance was ready, s
 
 ### Outcome
 
-At the completion of this step, the Project Blog was not only accessible via a custom domain but also secured with SSL encryption. The integration of Route 53 for DNS management and ACM for SSL configuration played a pivotal role in enhancing the website's security and reliability, providing a safe and consistent user experience.
+At the completion of this step, the Project Blog was not only accessible via a custom domain but also secured with SSL encryption. The integration of Route 53 for DNS management and ACM for SSL configuration played a role in enhancing my website's security and reliability, providing a safe and consistent user experience.
 
 ## Step 4 - Implement CloudFront for Content Delivery
 
