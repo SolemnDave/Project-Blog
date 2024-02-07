@@ -1,12 +1,18 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { ReactComponent as Sun } from "../../assets/images/Sun.svg";
-import { ReactComponent as Moon } from "../../assets/images/Moon.svg";
 import "./index.scss";
 import "./media.scss";
+import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { ReactComponent as Sun } from "../../assets/images/Sun.svg";
+import { ReactComponent as Moon } from "../../assets/images/Moon.svg";
+import plusbutton from "../../assets/images/plus-button.png";
+import minusbutton from "../../assets/images/minus-button.png";
+import { courseContent } from "./CourseContent";
 
-function ProjectBlog() {
+function CourseOne() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [selectedCourse, setSelectedCourse] = useState("course1");
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [showNav, setShowNav] = useState(true);
 
   const setDarkMode = () => {
     document.body.setAttribute("data-theme", "dark");
@@ -20,8 +26,6 @@ function ProjectBlog() {
 
   const selectedTheme = localStorage.getItem("selectedTheme");
 
-  const images1 = ["/ProjectBlogArch.png", "/vp.png", "/nl.png"];
-
   useEffect(() => {
     if (selectedTheme === "dark") {
       setDarkMode();
@@ -30,14 +34,30 @@ function ProjectBlog() {
     }
   }, [selectedTheme]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  function selectcourse(courseId, event) {
+    if (window.innerWidth < 1000) {
+      event.preventDefault();
+    }
+    setSelectedCourse(courseId); // Corrected function name
+  }
+
   const handleLabsDropdownChange = (event) => {
     const selectedUrl = event.target.value;
     if (selectedUrl) {
       window.location.href = selectedUrl;
     }
   };
-
-  const [currentImageIndex1, setCurrentImageIndex1] = useState(0);
 
   const handleCoursesDropdownChange = (event) => {
     const selectedUrl = event.target.value;
@@ -55,44 +75,37 @@ function ProjectBlog() {
     else setLightMode();
   };
 
-  useEffect(() => {
-    const intervalId1 = setInterval(() => {
-      setCurrentImageIndex1((prevIndex) =>
-        prevIndex === images1.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 15000);
-
-    return () => clearInterval(intervalId1);
-  }, [images1.length]);
-
+  const toggleNavVisibility = () => {
+    setShowNav(!showNav);
+  };
   return (
-    <div className="projectblog-page">
-      <header className="pb-header">
+    <div className="labone-page">
+      <header className="c1-header">
         <p>Solemn Dave</p>
       </header>
-      <section className="pb-under-header">
+
+      <section className="c1-under-header">
         <Link to="/">
           <img
             src="/atom1.png"
             alt="Descriptive Alt Text"
-            className="pb-under-header-image"
+            className="c1-under-header-image"
           />
         </Link>
         <img
           src="/hamburger-icon.png"
           alt="Menu"
-          className="pb-hamburger-icon"
+          className="c1-hamburger-icon"
           onClick={toggleMenu}
         />
 
-        {/* Desktop Dropdown Menus - these will remain as is */}
         <div
-          className={`pb-dropdown-menus ${
+          className={`c1-dropdown-menus ${
             isMenuOpen ? "open" : ""
           } desktop-dropdown`}
         >
           <select
-            className="pb-dropdown"
+            className="c1-dropdown"
             id="labs-dropdown"
             onChange={handleLabsDropdownChange}
           >
@@ -100,7 +113,7 @@ function ProjectBlog() {
             <option value="/book-one">AWS Unleashed</option>
           </select>
           <select
-            className="pb-dropdown"
+            className="c1-dropdown"
             id="courses-dropdown"
             onChange={handleCoursesDropdownChange}
           >
@@ -123,12 +136,11 @@ function ProjectBlog() {
           </label>
         </div>
       </section>
-      {/* Mobile Dropdown Menus in Media-Section - this will only render when the hamburger icon is clicked */}
-      <section className={`pb-media-section ${isMenuOpen ? "open" : ""}`}>
+      <section className={`c1-media-section ${isMenuOpen ? "open" : ""}`}>
         {isMenuOpen && (
-          <div className="pb-dropdown-menus mobile-dropdown">
+          <div className="c1-dropdown-menus mobile-dropdown">
             <select
-              className="pb-dropdown"
+              className="c1-dropdown"
               id="labs-dropdown-mobile"
               onChange={handleLabsDropdownChange}
             >
@@ -136,7 +148,7 @@ function ProjectBlog() {
               <option value="/book-one">AWS Unleashed</option>
             </select>
             <select
-              className="pb-dropdown"
+              className="c1-dropdown"
               id="courses-dropdown-mobile"
               onChange={handleCoursesDropdownChange}
             >
@@ -147,65 +159,54 @@ function ProjectBlog() {
         )}
       </section>
 
-      <section className="projectblog-section">
-        <div className="content">
-          <h1>I made this project because...</h1>
-          <p>
-            I wanted to make something of my own from the ground up with
-            <br></br> services that I never used before to really challenge
-            myself.
-          </p>
-          <p>
-            I felt it was a great to opportunity to kill two birds with one
-            <br></br> stone ! I was looking for project ideas and also felt I
-            needed a <br></br> way to document the resources I engage in.
-          </p>
-        </div>
-
-        <div className="pb-container">
+      <div className="c1-content-wrapper">
+        {showNav && (
+          <nav className="c1-content-nav">
+            <h1>Modules</h1>
+            <ul>
+              <li
+                className={selectedCourse === "course1" ? "selected" : ""}
+                onClick={(e) => selectcourse("course1", e)}
+              >
+                <a href="#course1">{windowWidth < 1000 ? "M1" : "Module 1"}</a>
+              </li>
+            </ul>
+          </nav>
+        )}
+        <main className="main-content">
           <img
-            src={images1[currentImageIndex1]}
-            alt="AWS Architecture Visualization"
+            src={showNav ? minusbutton : plusbutton}
+            alt="Toggle Icon"
+            onClick={toggleNavVisibility}
+            style={{ cursor: "pointer" }}
           />
-        </div>
-      </section>
+          {courseContent[selectedCourse].content}
 
-      <section className="mid-section">
-        <h2>Navigate to ... </h2>
-        <div className="mid-images">
-          <a
-            href="https://resume.solemndave.cloud/portfolio/projectblog"
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            <img src="/online-resume.png" alt="HTML5" />
-          </a>
-          <a
-            href="https://github.com/SolemnDave/Project-Blog"
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            <img src="/github.png" alt="SolemnDave's GitHub" />
-          </a>
-        </div>
-      </section>
+          <div className="bottom-group">
+            <div className="left-group">
+              <h1>Cloud Engineer Academy</h1>
+              <p className="author">Tech With Soleyman</p>
+            </div>
+            <div className="right-group">
+              <a
+                href="https://cloudengineeracademy.io/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="/course.png"
+                  alt="AWS Unleashed book"
+                  className="main-image"
+                />
+              </a>
+            </div>
+          </div>
+        </main>
+      </div>
 
-      <section className="pb-end-section">
-        <h2>This project was made with ... </h2>
-        <div className="pb-end-images">
-          <img src="/html-5.png" alt="Description1" />
-          <img src="/css.png" alt="Description2" />
-          <img src="/java-script.png" alt="Description3" />
-
-          <img src="/logo.png" alt="Description4" />
-          <img src="/linux.png" alt="Description5" />
-          <img src="/github.png" alt="Description6" />
-        </div>
-      </section>
-
-      <footer className="pb-footer">
+      <footer className="c1-footer">
         <p>Solemn Dave • Copyright © 2023</p>
-        <div className="pb-footer-images">
+        <div className="c1-footer-images">
           <a
             href="https://www.linkedin.com/in/david-reyes-jr-130549210/"
             target="_blank"
@@ -233,4 +234,4 @@ function ProjectBlog() {
   );
 }
 
-export default ProjectBlog;
+export default CourseOne;

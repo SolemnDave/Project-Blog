@@ -6,7 +6,7 @@
   }
 
   .labone-page {
-    .b1-header {
+    .c1-header {
       align-items: center;
 
       p {
@@ -14,29 +14,29 @@
       }
     }
 
-    .b1-under-header {
+    .c1-under-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 10px;
       height: 5vh;
 
-      .b1-under-header-image {
+      .c1-under-header-image {
         width: 60%;
       }
 
-      .b1-hamburger-icon {
+      .c1-hamburger-icon {
         display: block;
         cursor: pointer;
         margin-right: 16px;
       }
 
-      .b1-dropdown-menus {
+      .c1-dropdown-menus {
         display: none;
       }
     }
 
-    .b1-media-section {
+    .c1-media-section {
       display: none;
       flex-direction: column;
       align-items: center;
@@ -50,7 +50,7 @@
         flex-direction: column;
       }
 
-      .b1-dropdown-menus {
+      .c1-dropdown-menus {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
@@ -59,7 +59,7 @@
         width: 100%;
         padding: 10px 0;
 
-        .b1-dropdown {
+        .c1-dropdown {
           max-width: 200px;
           margin-top: 0;
           margin-bottom: 10px;
@@ -78,21 +78,21 @@
       }
     }
 
-    .b1-wrapper-section {
+    .c1-wrapper-section {
       margin: 0;
     }
 
-    .b1-content-wrapper {
+    .c1-content-wrapper {
       display: flex;
       flex-direction: column;
       width: 100%;
       height: auto;
 
-      .b1-content-nav {
+      .c1-content-nav {
         width: 100%;
         order: 1;
 
-        .b1-media-section.open ~ .b1-content-nav {
+        .c1-media-section.open ~ .c1-content-nav {
           display: block;
         }
 
@@ -154,21 +154,21 @@
       }
     }
 
-    .b1-footer {
+    .c1-footer {
       flex-direction: column;
       padding: 20px;
       //text-align: center;
     }
 
-    .b1-footer p,
-    .b1footer-images a {
+    .c1-footer p,
+    .c1-footer-images a {
       font-size: smaller;
       width: 100%;
       margin: 5px 0;
       text-align: center;
     }
 
-    .b1-footer-images {
+    .c1-footer-images {
       justify-content: center;
     }
   }

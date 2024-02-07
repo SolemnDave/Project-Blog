@@ -118,7 +118,7 @@ function BookOne() {
             onChange={handleCoursesDropdownChange}
           >
             <option value="">Courses</option>
-            {/*<option value="/course1">Course 1</option>*/}
+            <option value="/course-one">CEA</option>
           </select>
         </div>
 
@@ -153,7 +153,7 @@ function BookOne() {
               onChange={handleCoursesDropdownChange}
             >
               <option value="">Courses</option>
-              {/*<option value="/course1">Course 1</option>*/}
+              <option value="/course-one">CEA</option>
             </select>
           </div>
         )}
