@@ -1,4 +1,4 @@
-# Project Blog - https://blog.solemndave.cloud/
+
 
 ## Project Blog is a website created using AWS that is dedicated to documenting the courses and books that I engage in.
 
